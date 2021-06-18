@@ -9,12 +9,12 @@ namespace PromotionEngine.Models
     public class Order
     {
         public int Qty { get; }
-        public Product Product { get; }
+        public string ProductSku { get; }
 
-        public Order(int qty , Product product)
+        public Order(int qty , string productSku)
         {
             Qty = qty;
-            Product = product;
+            ProductSku = productSku;
         }
     }
 }

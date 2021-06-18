@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using PromotionEngine.Contracts;
 using PromotionEngine.Models;
+using PromotionEngine.Stores;
 
 
 namespace PromotionEngine.Promotions
@@ -28,11 +29,20 @@ namespace PromotionEngine.Promotions
         public double ApplyPromotionRule(Order order)
         {
             int remainingQty = myNoOfUnits - order.Qty;
-            double remainingPrice = remainingQty * (order.Product.UnitPrice);
+            Product product = ProductStores.GetProductList().FirstOrDefault(a => a.SKU == order.ProductSku);
 
-            double promotionPrice = remainingPrice + myFixedPrice;
+            if (product == null)
+            {
+                throw  new InvalidOperationException("Product is null");
+            }
+
+            var remainingPrice = remainingQty * (product.UnitPrice);
+
+            var promotionPrice = remainingPrice + myFixedPrice;
 
             return promotionPrice;
         }
+
+       
     }
 }

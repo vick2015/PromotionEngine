@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using PromotionEngine.Contracts;
 using PromotionEngine.Models;
 
 
 namespace PromotionEngine.Promotions
 {
-    public class SkuCombinedPromotion
+    public class SkuCombinedPromotion : IPromotionType
     {
         private readonly string mySku1;
         private readonly string mySku2;
