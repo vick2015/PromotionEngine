@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PromotionEngine.Contracts
 {
-    interface IPromotionEngine
+    public interface IPromotionType
     {
-        double ApplyPromotion(IPromotionType promotionType);
-    } 
+        void ApplyPromotionRule();
+    }
 }

@@ -11,7 +11,7 @@ namespace PromotionEngine
 {
     public class PromotionEngine : IPromotionEngine
     {
-        public double ApplyPromotion()
+        public double ApplyPromotion(IPromotionType promotionType)
         {
             throw new NotImplementedException();
         }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IPromotionEngine.cs" />
+    <Compile Include="Contracts\IPromotionType.cs" />
     <Compile Include="PromotionEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
