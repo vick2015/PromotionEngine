@@ -26,10 +26,21 @@ namespace PromotionEngine.Promotions
             PromotionRule = "buy 'n' items of a SKU for a fixed price";
         }
 
+        public bool IsPromotionValidOnOrder(Order order)
+        {
+            if (order.ProductSku != mySku)
+            {
+                return false;
+            }
+
+            return order.Qty >= myNoOfUnits;
+        }
+
         public double ApplyPromotionRule(Order order)
         {
-            int remainingQty = myNoOfUnits - order.Qty;
-            Product product = ProductStores.GetProductList().FirstOrDefault(a => a.SKU == order.ProductSku);
+            int quantityToApplyPromotionOn = order.Qty/myNoOfUnits;
+            int remainingQty = order.Qty % myNoOfUnits;
+            var product = ProductStores.GetProductList().FirstOrDefault(a => a.SKU == order.ProductSku);
 
             if (product == null)
             {
@@ -38,7 +49,7 @@ namespace PromotionEngine.Promotions
 
             var remainingPrice = remainingQty * (product.UnitPrice);
 
-            var promotionPrice = remainingPrice + myFixedPrice;
+            var promotionPrice = remainingPrice + myFixedPrice*quantityToApplyPromotionOn;
 
             return promotionPrice;
         }

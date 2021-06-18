@@ -12,6 +12,7 @@ namespace PromotionEngine.Contracts
     public interface IPromotionType
     {
         string PromotionRule { get; }
+        bool IsPromotionValidOnOrder(Order order);
         double ApplyPromotionRule(Order order);
     }
 }

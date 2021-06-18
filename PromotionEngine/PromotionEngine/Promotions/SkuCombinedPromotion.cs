@@ -25,6 +25,11 @@ namespace PromotionEngine.Promotions
             PromotionRule = "buy SKU 1 & SKU 2 for a fixed price";
         }
 
+        public bool IsPromotionValidOnOrder(Order order)
+        {
+            return false;
+        }
+
         public double ApplyPromotionRule(Order order)
         {
             return myFixedPrice;
