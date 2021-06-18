@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using PromotionEngine.Models;
+
+
 namespace PromotionEngine.Contracts
 {
     interface IPromotionEngine
     {
-        double ApplyPromotion(IPromotionType promotionType);
+        double ApplyPromotion(IList<Product> products , IPromotionType promotionType);
     } 
 }
