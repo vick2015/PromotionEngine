@@ -43,8 +43,11 @@
   <ItemGroup>
     <Compile Include="Contracts\IPromotionEngine.cs" />
     <Compile Include="Contracts\IPromotionType.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="PromotionEngine.cs" />
+    <Compile Include="Promotions\SkuCombinedPromotion.cs" />
+    <Compile Include="Promotions\SkuQuantityPromotion.cs" />
     <Compile Include="PromotionTypeSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

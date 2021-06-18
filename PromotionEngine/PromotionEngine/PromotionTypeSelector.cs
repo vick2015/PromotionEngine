@@ -12,7 +12,7 @@ namespace PromotionEngine
 {
     public static class PromotionTypeSelector
     {
-        public static IPromotionType GetBestPromotionTypeForProduct(Product product)
+        public static IPromotionType GetBestPromotionTypeForOrderedProduct(Order order)
         {
             return null;
         }

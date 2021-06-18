@@ -12,13 +12,13 @@ namespace PromotionEngine
 {
     public class PromotionEngine : IPromotionEngine
     {
-        public double ApplyPromotion(IList<Product> products, IPromotionType promotionType)
+        public double ApplyPromotion(IList<Order> orders)
         {
             double cost = 0;
-            foreach (var product in products)
+            foreach (var order in orders)
             {
-                var bestPromotionType = PromotionTypeSelector.GetBestPromotionTypeForProduct(product);
-                var promotionCost = bestPromotionType.ApplyPromotionRule();
+                var bestPromotionType = PromotionTypeSelector.GetBestPromotionTypeForOrderedProduct(order);
+                var promotionCost = bestPromotionType.ApplyPromotionRule(order);
                 cost += promotionCost;
             }
 
