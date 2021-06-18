@@ -10,7 +10,7 @@ using PromotionEngine.Models;
 
 namespace PromotionEngine.Promotions
 {
-    class SkuQuantityPromotion : IPromotionType
+    public class SkuQuantityPromotion : IPromotionType
     {
         private readonly int myNoOfUnits;
         private readonly string mySku;
