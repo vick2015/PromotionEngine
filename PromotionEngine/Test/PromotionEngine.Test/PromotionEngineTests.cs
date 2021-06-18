@@ -1,9 +1,6 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
+using NUnit.Framework;
 
 using PromotionEngine.Models;
 using PromotionEngine.Promotions;
@@ -29,6 +26,9 @@ namespace PromotionEngine.Test
         public void TearDown()
         {
             myPromotionEngine = null;
+            ClearPromotions();
+            ClearProducts();
+            ClearOrders();
         }
 
         [Test]
@@ -87,6 +87,21 @@ namespace PromotionEngine.Test
             PromotionStores.AddPromotion(new SkuQuantityPromotion(3,"A",130));
             PromotionStores.AddPromotion(new SkuQuantityPromotion(2, "B", 45));
             PromotionStores.AddPromotion(new SkuCombinedPromotion("C", "D", 30));
+        }
+
+        private void ClearProducts()
+        {
+            ProductStores.Clear();
+        }
+
+        private void ClearPromotions()
+        {
+            PromotionStores.Clear();
+        }
+
+        private void ClearOrders()
+        {
+            OrderStores.Clear();
         }
 
     }

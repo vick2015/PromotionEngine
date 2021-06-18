@@ -22,5 +22,10 @@ namespace PromotionEngine.Stores
         {
             return myProductList;
         }
+
+        public static void Clear()
+        {
+            myProductList.Clear();
+        }
     }
 }

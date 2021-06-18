@@ -22,5 +22,10 @@ namespace PromotionEngine.Stores
         {
             return myPromotionTypes;
         }
+
+        public static void Clear()
+        {
+            myPromotionTypes.Clear();
+        }
     }
 }
