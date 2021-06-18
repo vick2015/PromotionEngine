@@ -36,7 +36,10 @@ namespace PromotionEngine.Test
         public void ApplyPromotion_WithIndividualSku_DiscountedTotalShouldBeReturned()
         {
             var orders = new List<Order> {new Order(5, "A"), new Order(5, "B"), new Order(1, "C")};
-            double promotionPrice = myPromotionEngine.ApplyPromotion(orders);
+            OrderStores.AddOrder(orders);
+
+            double promotionPrice = myPromotionEngine.ApplyPromotion();
+
             Assert.AreEqual(370,promotionPrice);
         }
 
@@ -44,15 +47,32 @@ namespace PromotionEngine.Test
         public void ApplyPromotion_WithNoPromotionApplied_ActualTotalShouldBeReturned()
         {
             var orders = new List<Order> { new Order(1, "A"), new Order(1, "B"), new Order(1, "C") };
-            double promotionPrice = myPromotionEngine.ApplyPromotion(orders);
+            OrderStores.AddOrder(orders);
+
+            double promotionPrice = myPromotionEngine.ApplyPromotion();
             Assert.AreEqual(100, promotionPrice);
         }
 
         [Test]
         public void ApplyPromotion_WithMultiplePromotionTypes_DiscountedTotalShouldBeReturned()
         {
+            var orders = new List<Order> { new Order(3, "A"), new Order(5, "B"), new Order(1, "C"), new Order(1, "D") };
+            OrderStores.AddOrder(orders);
 
+            double promotionPrice = myPromotionEngine.ApplyPromotion();
+            Assert.AreEqual(280, promotionPrice);
         }
+
+        [Test]
+        public void ApplyPromotion_WithMultiplePromotionS_DiscountedTotalShouldBeReturned()
+        {
+            var orders = new List<Order> { new Order(10, "A"), new Order(20, "B"), new Order(4, "C"), new Order(3, "D") };
+            OrderStores.AddOrder(orders);
+
+            double promotionPrice = myPromotionEngine.ApplyPromotion();
+            Assert.AreEqual(1000, promotionPrice);
+        }
+
 
         private void AddProducts()
         {

@@ -11,6 +11,6 @@ namespace PromotionEngine.Contracts
 {
     interface IPromotionEngine
     {
-        double ApplyPromotion(IList<Order> orders);
+        double ApplyPromotion();
     } 
 }

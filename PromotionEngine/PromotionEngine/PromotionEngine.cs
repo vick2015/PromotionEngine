@@ -13,9 +13,11 @@ namespace PromotionEngine
 {
     public class PromotionEngine : IPromotionEngine
     {
-        public double ApplyPromotion(IList<Order> orders)
+        public double ApplyPromotion()
         {
             double cost = 0;
+            var orders = OrderStores.GetOrders();
+
             foreach (var order in orders)
             {
                 var bestPromotionType = PromotionTypeSelector.GetBestPromotionTypeForOrderedProduct(order);
