@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using PromotionEngine.Contracts;
 using PromotionEngine.Models;
+using PromotionEngine.Stores;
 
 
 namespace PromotionEngine
@@ -18,8 +19,17 @@ namespace PromotionEngine
             foreach (var order in orders)
             {
                 var bestPromotionType = PromotionTypeSelector.GetBestPromotionTypeForOrderedProduct(order);
-                var promotionCost = bestPromotionType.ApplyPromotionRule(order);
-                cost += promotionCost;
+                if (bestPromotionType == null)
+                {
+                    Product product = ProductStores.GetProductList().FirstOrDefault(a => a.SKU == order.ProductSku);
+                    cost = cost + (order.Qty * product.UnitPrice);
+                }
+                else
+                {
+                    var promotionCost = bestPromotionType.ApplyPromotionRule(order);
+                    cost += promotionCost;
+                }
+
             }
 
             return cost;
