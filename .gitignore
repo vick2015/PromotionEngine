@@ -338,5 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
-/PromotionEngine/PromotionEngine/Promotions/SkuQuantityPromotion.cs
-/PromotionEngine/PromotionEngine/Promotions/SkuCombinedPromotion.cs
+
