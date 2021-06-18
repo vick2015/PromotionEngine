@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using PromotionEngine.Contracts;
 using PromotionEngine.Models;
+using PromotionEngine.Stores;
 
 
 namespace PromotionEngine
@@ -14,6 +15,15 @@ namespace PromotionEngine
     {
         public static IPromotionType GetBestPromotionTypeForOrderedProduct(Order order)
         {
+            var activePromotionsList = PromotionStores.GetActivePromotionList();
+            foreach (var activePromotionType in activePromotionsList)
+            {
+                if (activePromotionType.IsPromotionValidOnOrder(order))
+                {
+                    return activePromotionType;
+                }
+            }
+
             return null;
         }
     }

@@ -13,12 +13,12 @@ namespace PromotionEngine.Stores
     {
         private static readonly List<IPromotionType> myPromotionTypes = new List<IPromotionType>();
 
-        public static void AddProduct(IPromotionType promotion)
+        public static void AddPromotion(IPromotionType promotion)
         {
             myPromotionTypes.Add(promotion);
         }
 
-        public static IReadOnlyCollection<IPromotionType> GetActivePromotionList(IPromotionType promotion)
+        public static IReadOnlyCollection<IPromotionType> GetActivePromotionList()
         {
             return myPromotionTypes;
         }
