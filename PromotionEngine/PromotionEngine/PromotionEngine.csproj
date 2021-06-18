@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Contracts\IPromotionEngine.cs" />
     <Compile Include="Contracts\IPromotionType.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="PromotionEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
