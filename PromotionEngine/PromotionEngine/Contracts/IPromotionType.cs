@@ -8,6 +8,6 @@ namespace PromotionEngine.Contracts
 {
     public interface IPromotionType
     {
-        void ApplyPromotionRule();
+        double ApplyPromotionRule();
     }
 }

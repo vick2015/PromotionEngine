@@ -45,6 +45,7 @@
     <Compile Include="Contracts\IPromotionType.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="PromotionEngine.cs" />
+    <Compile Include="PromotionTypeSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -14,7 +14,15 @@ namespace PromotionEngine
     {
         public double ApplyPromotion(IList<Product> products, IPromotionType promotionType)
         {
-            throw new NotImplementedException();
+            double cost = 0;
+            foreach (var product in products)
+            {
+                var bestPromotionType = PromotionTypeSelector.GetBestPromotionTypeForProduct(product);
+                var promotionCost = bestPromotionType.ApplyPromotionRule();
+                cost += promotionCost;
+            }
+
+            return cost;
         }
     }
 }
